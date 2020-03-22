@@ -17,13 +17,11 @@ public class CRUDTest {
 			
 			Statement statement = connection.createStatement();
 			//int result = statement.executeUpdate("CREATE TABLE Employee(emp_id INT, emp_name VARCHAR2(30), emp_salary INT)");
-			int result = statement.executeUpdate("INSERT INTO Employee VALUES (103, 'EmployeeC', 30000)");
+			//int result = statement.executeUpdate("INSERT INTO Employee VALUES (103, 'EmployeeC', 30000)");
+			int result = statement.executeUpdate("UPDATE Employee SET emp_salary = 15000 WHERE emp_id = 101");
 			
 			System.out.println("Number of rows affected: " + result);
 			connection.close();
-			
-			
-			
 			
 			
 		}
@@ -31,4 +29,6 @@ public class CRUDTest {
 			 e.printStackTrace();
 		 }
 	}
+	
+	
 }
