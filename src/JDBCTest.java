@@ -23,6 +23,8 @@ public class JDBCTest {
 	        while (resultSet.next()) {
 	        	System.out.println("--> " + resultSet.getString("NAME"));
 	        }
+	        
+	        connection.close();
             
         }
         catch (Exception e) {
