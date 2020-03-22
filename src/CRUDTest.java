@@ -16,7 +16,8 @@ public class CRUDTest {
 			Connection connection = DriverManager.getConnection(URL,USERNAME,PASSWORD);
 			
 			Statement statement = connection.createStatement();
-			int result = statement.executeUpdate("CREATE TABLE Employee(emp_id INT, emp_name VARCHAR2(30), emp_salary INT)");
+			//int result = statement.executeUpdate("CREATE TABLE Employee(emp_id INT, emp_name VARCHAR2(30), emp_salary INT)");
+			int result = statement.executeUpdate("INSERT INTO Employee VALUES (103, 'EmployeeC', 30000)");
 			
 			System.out.println("Number of rows affected: " + result);
 			connection.close();
