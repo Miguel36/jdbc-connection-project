@@ -15,13 +15,13 @@ public class CallableStatementTest {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			Connection connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 			
-			CallableStatement statement = connection.prepareCall("{call insertEmployee(?, ?, ?)}");
+			CallableStatement statement = connection.prepareCall("{call getEmployeeById(?, ?, ?)}");
 			statement.setInt(1, 101);
-			statement.setString(2, "EmployeeA");
-			statement.setInt(3, 10000);
-			int result = statement.executeUpdate();
+			statement.registerOutParameter(2, java.sql.Types.VARCHAR);
+			statement.registerOutParameter(3, java.sql.Types.INTEGER);
+			statement.executeUpdate();
 			
-			System.out.println("Number of rows affected: " + result);
+			System.out.println("Name: " + statement.getString(2) + " Salary: " + statement.getInt(3));
 			
 			connection.close();		
 		}

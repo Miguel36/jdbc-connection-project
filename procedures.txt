@@ -1,0 +1,25 @@
+Procedure1
+
+CREATE OR REPLACE PROCEDURE insertEmployee (
+eid IN NUMBER,
+ename IN VARCHAR2,
+esal IN NUMBER)
+IS
+BEGIN
+INSERT INTO Employee VALUES (eid, ename, esal);
+END;
+/
+
+Procedure2
+
+CREATE OR REPLACE PROCEDURE getEmployeeById (
+eid IN employee.emp_id%TYPE,
+ename OUT employee.emp_name%TYPE,
+esal OUT employee.emp_salary%TYPE)
+IS
+BEGIN
+SELECT emp_name, emp_salary
+INTO ename, esal FROM employee WHERE emp_id = eid;
+END;
+/
+
